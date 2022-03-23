@@ -1,3 +1,101 @@
+<style type="text/css">
+.picto-item {
+  position: relative;  /*les .picto-item deviennent référents*/
+  cursor: help;
+  border-radius: 50%;
+}
+
+/* on génère un élément :after lors du survol et du focus :*/
+
+.picto-item:hover:after,
+.picto-item:focus:after {
+  content: attr(aria-label);  /* on affiche aria-label */
+  position: absolute;
+  top: -2.4em;
+  left: 50%;
+	transform: translateX(-50%); /* on centre horizontalement  */
+  z-index: 1; /* pour s'afficher au dessus des éléments en position relative */
+  white-space: nowrap;  /* on interdit le retour à la ligne*/
+  padding: 5px 14px;
+  background: #413219;
+  color: #fff;
+  border-radius: 4px;
+  font-size: 1.2rem;
+}
+
+/* on génère un second élément en :before pour la flèche */
+
+[aria-label]:hover:before,
+[aria-label]:focus:before {
+  content: "▼";
+  position: absolute;
+  top: -1em;
+	left: 50%;
+	transform: translateX(-50%); /* on centre horizontalement  */
+  font-size: 20px;
+  color: #413219;
+}
+
+/* pas de contour durant le :focus */
+[aria-label]:focus {
+  outline: none;
+}
+
+
+
+/* déco */ 
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #F1EFE2;
+  font-size: 1.4em;
+  line-height: 1.4;
+  font-family: georgia, sans-serif;
+}
+h1 {
+  margin-top: 20px;
+  margin-bottom: 40px;
+  color: #789;
+  text-align: center;
+  text-shadow: 1px 1px #fff;
+}
+p, .pictos {
+  text-align: center;
+}
+
+.picto-item {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 .2em;
+  width: 1.2em;
+  height: 1.2em;
+  color: #413219;
+  background: #e1d3bd;
+  font-size: 3rem;
+  text-align: center;
+  text-decoration: none;
+}
+</style>
+
+<div class="pictos">
+  <a class="picto-item" href="#" aria-label="favoris">★</a>
+  <a class="picto-item" href="#" aria-label="the cloud">☁</a>
+  <a class="picto-item" href="#" aria-label="navigation super cool">≡</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
 
  <table border="0" cellpadding="0" cellspacing="0" align="center" style="margin:0 auto;">
  
